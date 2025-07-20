@@ -1,0 +1,32 @@
+format="""
+$localip\
+$container\
+$directory\
+$package\
+$c\
+$cpp\
+$cmake\
+$golang\
+$nodejs\
+$cmd_duration\
+$fill\
+$jobs\
+$git_branch\
+$git_commit\
+$git_state\
+$git_metrics\
+$git_status\
+$line_break\
+$batterry\
+$character\
+"""
+
+[git_metrics]
+disabled = false
+
+[[battery.display]]
+threshold = 20
+style = 'bold red'
+
+[fill]
+symbol = " "
