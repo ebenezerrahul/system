@@ -63,3 +63,6 @@ source ~/.autoenv/activate.sh
 ## KEYBINDINGS
 bindkey '^y' autosuggest-accept
 bindkey -s "^X" '^Cclear -x^M'
+
+## add ssh-agent socket
+eval $(ssh-agent) > /dev/null
