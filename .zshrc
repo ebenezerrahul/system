@@ -5,10 +5,14 @@ SAVEHIST=100000
 bindkey -e
 # End of lines configured by zsh-newuser-install
 
+
+export TZ=IST-5:30
+
 # PATH
 export PATH=$HOME/.local/scripts:$PATH
 export PATH=$HOME/.cargo/bin:$PATH
 export PATH=$HOME/.local/bin:$PATH
+export PATH=$PATH:/home/ebenezerrahul/.spicetify
 
 ## oh-my-zsh
 export ZSH="$HOME/.oh-my-zsh"
@@ -31,6 +35,7 @@ export AUTO_NOTIFY_IGNORE=("docker" "man" "sleep" "nvim")
 # EDITOR
 export EDITOR=nvim
 alias v=nvim
+alias vim=nvim
 
 #FZF
 source $HOME/.config/fzf/config.sh
@@ -51,6 +56,9 @@ alias mv="mv -i"
 alias ls='eza --icons=always --color=always --all --git'
 
 echo -e -n "\x1b[\x35 q" # changes to blinking bar
+
+#autoenv
+source ~/.autoenv/activate.sh
 
 ## KEYBINDINGS
 bindkey '^y' autosuggest-accept
