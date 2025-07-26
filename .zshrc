@@ -22,10 +22,6 @@ source $ZSH/oh-my-zsh.sh
 # wal config
 wal -R >> /dev/null
 
-## zoxide
-eval "$(zoxide init zsh)"
-alias cd=z
-
 # AUTO_NOTIFY ZSH
 export AUTO_NOTIFY_THRESHOLD=20
 export AUTO_NOTIFY_TITLE="Hey! %command has just finished"
@@ -72,3 +68,6 @@ if [ ! -f "$SSH_AUTH_SOCK" ]; then
     source "$XDG_RUNTIME_DIR/ssh-agent.env" >/dev/null
 fi
 
+## zoxide
+eval "$(zoxide init zsh)"
+alias cd=z
