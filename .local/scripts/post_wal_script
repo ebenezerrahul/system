@@ -1,0 +1,4 @@
+#!/usr/bin/zsh
+
+ln -sf ~/.cache/wal/colors.Xresources ~/.Xresources
+cat ~/.Xresources ~/.cache/wal/xrdb_extra | xrdb -merge
