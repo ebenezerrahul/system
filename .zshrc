@@ -42,10 +42,6 @@ eval $(thefuck --alias)
 ## cool and useful qr utility
 alias qr='qrencode -m 2 -t utf8 <<< "$1"'
 
-## SSH
-# Need to run ssh-agent as a deamon
-export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
-
 ## alias
 alias dotfiles='/usr/bin/git --git-dir="$HOME/.dotfiles" --work-tree="$HOME"'
 alias mv="mv -i"
@@ -59,6 +55,10 @@ source ~/.autoenv/activate.sh
 ## KEYBINDINGS
 bindkey '^y' autosuggest-accept
 bindkey -s "^X" '^Cclear -x^M'
+
+if [[ ! -v XDG_RUNTIME_DIR ]] then
+    XDG_RUNTIME_DIR=$HOME
+fi
 
 ## add ssh-agent socket
 if ! pgrep -u "$USER" ssh-agent > /dev/null; then
