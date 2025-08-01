@@ -20,7 +20,7 @@ plugins=(git zsh-syntax-highlighting colored-man-pages command-not-found extract
 source $ZSH/oh-my-zsh.sh
 
 # wal config
-wal -R >> /dev/null
+#wal -R >> /dev/null
 
 # AUTO_NOTIFY ZSH
 export AUTO_NOTIFY_THRESHOLD=20
@@ -62,7 +62,7 @@ fi
 
 ## add ssh-agent socket
 if ! pgrep -u "$USER" ssh-agent > /dev/null; then
-    ssh-agent -t 1h > "$XDG_RUNTIME_DIR/ssh-agent.env"
+    ssh-agent -t 24h > "$XDG_RUNTIME_DIR/ssh-agent.env"
 fi
 if [ ! -f "$SSH_AUTH_SOCK" ]; then
     source "$XDG_RUNTIME_DIR/ssh-agent.env" >/dev/null
