@@ -12,7 +12,7 @@ export TZ=IST-5:30
 export PATH=$HOME/.local/scripts:$PATH
 export PATH=$HOME/.cargo/bin:$PATH
 export PATH=$HOME/.local/bin:$PATH
-export PATH=$PATH:/home/ebenezerrahul/.spicetify
+export PATH=$HOME/.spicetify:$PATH
 
 ## oh-my-zsh
 export ZSH="$HOME/.oh-my-zsh"
@@ -20,7 +20,7 @@ plugins=(git zsh-syntax-highlighting colored-man-pages command-not-found extract
 source $ZSH/oh-my-zsh.sh
 
 # wal config
-#wal -R >> /dev/null
+wal -R >> /dev/null
 
 # AUTO_NOTIFY ZSH
 export AUTO_NOTIFY_THRESHOLD=20
@@ -62,7 +62,7 @@ fi
 
 ## add ssh-agent socket
 if ! pgrep -u "$USER" ssh-agent > /dev/null; then
-    ssh-agent -t 24h > "$XDG_RUNTIME_DIR/ssh-agent.env"
+    ssh-agent > "$XDG_RUNTIME_DIR/ssh-agent.env"
 fi
 if [ ! -f "$SSH_AUTH_SOCK" ]; then
     source "$XDG_RUNTIME_DIR/ssh-agent.env" >/dev/null
