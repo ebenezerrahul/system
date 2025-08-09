@@ -1,0 +1,6 @@
+@import "default-theme-overrides.css";
+
+/* Center asciinema embed play icon overlay */
+.ap-player .ap-overlay-start .ap-play-button {
+    position: relative !important;
+}
