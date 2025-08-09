@@ -12,6 +12,7 @@ export TZ=IST-5:30
 export PATH=$HOME/.local/scripts:$PATH
 export PATH=$HOME/.cargo/bin:$PATH
 export PATH=$HOME/.local/bin:$PATH
+export PATH=$HOME/.config/emacs/bin:$PATH
 export PATH=$HOME/.spicetify:$PATH
 
 ## oh-my-zsh
@@ -32,6 +33,7 @@ export AUTO_NOTIFY_IGNORE=("docker" "man" "sleep" "nvim")
 export EDITOR=nvim
 alias v=nvim
 alias vim=nvim
+export ALTERNATE_EDITOR=""
 
 #FZF
 source $HOME/.config/fzf/config.sh
@@ -45,7 +47,7 @@ alias qr='qrencode -m 2 -t utf8 <<< "$1"'
 ## alias
 alias dotfiles='/usr/bin/git --git-dir="$HOME/.dotfiles" --work-tree="$HOME"'
 alias mv="mv -i"
-alias ls='eza --icons=always --color=always --all --git'
+alias ls='eza --icons=always --color=always --all -x --git'
 
 echo -e -n "\x1b[\x35 q" # changes to blinking bar
 
@@ -71,3 +73,6 @@ fi
 ## zoxide
 eval "$(zoxide init zsh)"
 alias cd=z
+
+source $HOME/zsh-transient-prompt/transient-prompt.plugin.zsh
+source $HOME/.local/scripts/*
