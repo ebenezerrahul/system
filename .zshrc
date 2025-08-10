@@ -34,6 +34,7 @@ export EDITOR=nvim
 alias v=nvim
 alias vim=nvim
 export ALTERNATE_EDITOR=""
+alias e="emacsclient -ct"
 
 #FZF
 source $HOME/.config/fzf/config.sh
