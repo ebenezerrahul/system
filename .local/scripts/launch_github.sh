@@ -10,16 +10,39 @@ get_remote_url() {
         return
     fi
 
-    local repo_path=$(git remote get-url origin| cut -d ':' -f 2);
+    local repo_path=$(git remote get-url origin| cut -d ':' -f 2|sed 's/\.git//');
     local domain="https://$(git remote get-url origin|cut -d ':' -f 1|cut -d '@' -f 2)"
     echo "$domain/$repo_path"
 }
 
 open_github() {
-    get_remote_url
     if [[ -d .git ]]
     then
+        local remote_url=$(get_remote_url)
+        if [[ -z $remote_url ]]
+        then
+            return
+        fi
+        local mr=$(git ls-remote origin | grep $(git rev-parse HEAD) | grep -E 'pull|merge' | sed 's/.*\t//'| cut -d '/' -f 2,3|sed 's/\-/\_/');
+        if [[ -z $mr ]]
+        then
+            platform_open $remote_url
+            return
+        else
+            platform_open "$remote_url/$mr"
+        fi
     fi
+
 }
 
-git ls-remote origin | grep $(git rev-parse HEAD)| grep merge| sed 's/.*\t//' | cut -d '/' -f 3
+platform_open() {
+
+        if [[ $(uname) == "Linux" ]]
+        then
+            xdg-open $1
+        else
+            open $1
+        fi
+}
+
+open_github
