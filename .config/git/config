@@ -1,0 +1,38 @@
+[user]
+	name = ebenezerrahul
+
+[core]
+	compression = 9
+	whitespace = error
+	preloadindex = true
+
+[push]
+	autoSetupRemote = true
+
+[status]
+	branch = true
+	showStash = true
+
+[diff]
+	innerHunkContext = 10
+
+[pager]
+	diff = diff-so-fancy | $PAGER
+
+[rebase]
+	autoStash = true
+
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = false
+
+[alias]
+	staaash = stash --all
+
+[rerere]
+	enabled = true
+
+[branch]
+	sort = -committerdate
