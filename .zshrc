@@ -76,22 +76,24 @@ eval "$(zoxide init zsh)"
 alias cd=z
 
 source $HOME/zsh-transient-prompt/transient-prompt.plugin.zsh
+
 for script in ~/.local/scripts/source/*
 do
     . "$script" > /dev/null
 done
+
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
-
-# Autostart tmux
-if [ -z "${TMUX}" ]; then
-    tmux -2u attach -t ebenezerrahul || tmux -2u new -s ebenezerrahul
-fi
 
 if [[ $(uname) == "Linux" ]]
 then
 export DOCKER_HOST="unix://$HOME/.config/colima/default/docker.sock"
 else
 export DOCKER_HOST="unix://$HOME/.config/colima/vc/docker.sock"
+fi
+
+# Autostart tmux
+if [ -z "${TMUX}" ]; then
+    tmux -2u attach -t ebenezerrahul || tmux -2u new -s ebenezerrahul
 fi
