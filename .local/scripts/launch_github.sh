@@ -16,7 +16,8 @@ get_remote_url() {
 }
 
 open_github() {
-    if [[ -d .git ]]
+    git status > /dev/null
+    if [[ $? -eq 0 ]]
     then
         local remote_url=$(get_remote_url)
         if [[ -z $remote_url ]]
